@@ -1,0 +1,48 @@
+<div
+  class="card w-1/6 border border-salmon fixed top-32 right-1/2 bg-white items-center"
+>
+  <p class="text-lg text-wine text-center">Crear nuevo ToDo</p>
+  <form
+    action=""
+    class="mt-4 w-full"
+    [formGroup]="todoForm"
+    (ngSubmit)="handleSubmit()"
+  >
+    <input
+      type="text"
+      placeholder="Título"
+      class="input border-salmon w-full"
+      formControlName="titulo"
+    />
+    <textarea
+      class="border border-salmon focus:outline-none rounded-md focus:border-2 text-slate-600"
+      placeholder="Desripción"
+      cols="30"
+      rows="3"
+      formControlName="descripcion"
+    ></textarea>
+    <select class="select" formControlName="categoria">
+      <option value="">Elija una categoria</option>
+      @for (cat of categorias; track $index) {
+      <option [value]="cat">{{ cat }}</option>
+      }
+    </select>
+    <div class="flex items-center justify-start my-3">
+      <label
+        class="flex flex-col items-center py-1 px-2 bg-salmon text-white rounded-lg shadow-lg tracking-wide uppercase border cursor-pointer"
+      >
+        <span class="mt-2 text-base leading-normal">Imagen</span>
+        <input type="file" class="hidden" />
+      </label>
+    </div>
+    <input type="checkbox" class="w-6" />
+    <button
+      type="submit"
+      [disabled]="todoForm.invalid"
+      class="btn border-salmon hover:bg-salmon w-full"
+    >
+      Enviar
+    </button>
+  </form>
+  <div class="flex justify-around"></div>
+</div>

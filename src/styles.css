@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-link {
+  @apply px-2 text-white hover:font-bold;
+}
+
+.card {
+  @apply shadow-lg p-4 flex flex-col justify-center rounded-md;
+}
+
+.card-title {
+  @apply text-2xl text-center py-3 font-medium;
+}
+
+.card-text {
+}
+
+.input {
+  @apply focus:outline-none border rounded-md focus:border-2 my-3 p-1 text-slate-600;
+}
+
+.btn {
+  @apply bg-none border py-1 px-3 rounded-md  hover:text-white cursor-pointer;
+}
+
+.select {
+  @apply border border-salmon bg-white w-full my-2 rounded-md py-2 text-slate-600 px-2;
+}

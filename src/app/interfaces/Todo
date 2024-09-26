@@ -1,0 +1,13 @@
+export interface Todo {
+  id?: number;
+  titulo: string;
+  descripcion: string;
+  categoria: Categoria;
+  imagen?: string;
+  isCompleted: boolean;
+}
+
+export interface Categoria {
+  id?: number;
+  nombre: string;
+}
