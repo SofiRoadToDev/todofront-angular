@@ -1,5 +1,10 @@
 <app-navbar />
 <main class="bg-repeat bg-cover absolute">
-  <app-modal-form />
+  <ul>
+    @for (todo of todos; track todo.id) {
+    <app-card [todo]="todo" />
+    }
+  </ul>
+
   <router-outlet />
 </main>

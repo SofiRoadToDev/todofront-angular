@@ -1,7 +1,7 @@
 export interface Todo {
   id?: number;
-  titulo: string;
-  descripcion: string;
+  nombre: string;
+  detalle: string;
   categoria: Categoria;
   imagen?: string;
   isCompleted: boolean;
