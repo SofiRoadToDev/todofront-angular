@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Todo } from '../interfaces/Todo';
+import { Categoria, Todo } from '../interfaces/Todo';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +26,15 @@ export class TodoService {
 
   actualizarTodo(todo: Todo) {
     return this.http.put(this.baseUrl, todo);
+  }
+
+  getCategories():Observable<Categoria[]>{
+      return this.http.get<Categoria[]>(this.baseUrl+"/categorias")
+        .pipe(catchError(this.handleError));
+  }
+
+  getTasksByCategoryId(id:number):Observable<Todo[]>{
+    return this.http.get<Todo[]>(this.baseUrl+"/filtro-categoria", {params: {id}});
   }
 
   handleError(error: HttpErrorResponse) {
