@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component, inject, Input } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -9,13 +10,15 @@ import {
 @Component({
   selector: 'app-modal-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './modal-form.component.html',
   styleUrl: './modal-form.component.css',
 })
 export class ModalFormComponent {
   fb = inject(FormBuilder);
   categorias = ['codigo', 'ejercicio', 'trabajo'];
+  @Input()
+  isHidden = true;
 
   todoForm = this.fb.group({
     titulo: new FormControl('', Validators.required),
@@ -27,5 +30,9 @@ export class ModalFormComponent {
 
   handleSubmit() {
     console.log(this.todoForm.value);
+  }
+
+  openModal() {
+    this.isHidden = false;
   }
 }

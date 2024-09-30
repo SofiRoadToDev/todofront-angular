@@ -9,7 +9,6 @@ import { TodoService } from './services/todo.service';
 import { Categoria, Todo } from './interfaces/Todo';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -20,18 +19,19 @@ import { FormsModule } from '@angular/forms';
     CardsListComponent,
     ModalComponent,
     ModalFormComponent,
-   FormsModule
+    FormsModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'todo-frontend';
   todos: Todo[] = [];
   service = inject(TodoService);
   error = null;
   categoryFilter = 0;
   categories: Categoria[] = [];
+  hideModal = true;
 
   ngOnInit(): void {
     this.service.getToDos().subscribe({
@@ -42,19 +42,18 @@ export class AppComponent implements OnInit{
     });
 
     this.service.getCategories().subscribe({
-      next: (res) => this.categories = res,
-      error: (err) => this.error = err
-    })
+      next: (res) => (this.categories = res),
+      error: (err) => (this.error = err),
+    });
   }
 
-
-  filterCategoryChange(){
-    if(this.categoryFilter == 0){
-      this.service.getToDos().subscribe(res => this.todos = res);
+  filterCategoryChange() {
+    if (this.categoryFilter == 0) {
+      this.service.getToDos().subscribe((res) => (this.todos = res));
     }
-    this.service.getTasksByCategoryId(this.categoryFilter)
-      .subscribe(res => this.todos = res)
-     
+    this.service
+      .getTasksByCategoryId(this.categoryFilter)
+      .subscribe((res) => (this.todos = res));
   }
   /**filterCategoryChange(event:Event){
     const newValue = (event.target as HTMLInputElement).value

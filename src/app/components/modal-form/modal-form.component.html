@@ -1,5 +1,6 @@
 <div
-  class="card w-1/6 border border-salmon fixed top-32 right-1/2 bg-white items-center"
+  class="card w-1/6 fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white items-center"
+  [ngClass]="{ hidden: isHidden }"
 >
   <p class="text-lg text-wine text-center">Crear nuevo ToDo</p>
   <form
@@ -27,14 +28,7 @@
       <option [value]="cat">{{ cat }}</option>
       }
     </select>
-    <div class="flex items-center justify-start my-3">
-      <label
-        class="flex flex-col items-center py-1 px-2 bg-salmon text-white rounded-lg shadow-lg tracking-wide uppercase border cursor-pointer"
-      >
-        <span class="mt-2 text-base leading-normal">Imagen</span>
-        <input type="file" class="hidden" />
-      </label>
-    </div>
+
     <input type="checkbox" class="w-6" />
     <button
       type="submit"
@@ -44,5 +38,4 @@
       Enviar
     </button>
   </form>
-  <div class="flex justify-around"></div>
 </div>
