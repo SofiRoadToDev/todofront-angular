@@ -17,13 +17,13 @@ export class LoginService {
 
   createLoginHeader(user: User): HttpHeaders {
     return new HttpHeaders({
-      Authorization: `Basic ${user.usuario}:${user.contraseña}`,
+      Authorization: `Basic ${user.usuario}:${user.contrasenia}`,
       'Content-type': 'application/json',
     });
   }
 
   loginUser(user: User): Observable<any> {
-    return this.http.post(this.url, user, {cerateLoginHeader(user)}).pipe(catchError(this.handleError));
+    return this.http.post(this.url, user).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

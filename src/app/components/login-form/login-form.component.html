@@ -1,17 +1,22 @@
 <article class="card w-1/4 center-screen">
   <p class="card-title text-rose">Login</p>
-  <form action="" class="flex flex-col p-3">
+  <form  class="flex flex-col p-3"  #loginform="ngForm" (ngSubmit)="login()">
     <input
       class="input focus:border-2 focus:border-salmon"
       type="text"
       placeholder="Usuario"
+      name="usuario"
+      id="Usuario"
+      [(ngModel)] = "user.usuario" 
     />
     <input
       class="input focus:border-2 focus:border-salmon"
       type="password"
       placeholder="Contraseña"
+      name="contraseña"
+      [(ngModel)] = "user.contrasenia" 
     />
-    <button type="submit" class="btn border border-salmon hover:bg-salmon">
+    <button type="submit" [disabled]="loginform.invalid" class="btn border border-salmon hover:bg-salmon">
       Iniciar sesión
     </button>
   </form>

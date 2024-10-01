@@ -14,5 +14,5 @@ export interface Categoria {
 
 export interface User {
   usuario: string;
-  contraseña: string;
+  contrasenia: string;
 }
