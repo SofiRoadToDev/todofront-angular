@@ -8,6 +8,7 @@ import { ModalFormComponent } from './components/modal-form/modal-form.component
 import { TodoService } from './services/todo.service';
 import { Categoria, Todo } from './interfaces/Todo';
 import { FormsModule } from '@angular/forms';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     ModalComponent,
     ModalFormComponent,
     FormsModule,
+    LoginFormComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

@@ -1,11 +1,11 @@
 <div
-  class="card w-1/6 fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white items-center"
+  class="card w-1/6 center-screen bg-white items-center"
   [ngClass]="{ hidden: isHidden }"
 >
   <p class="text-lg text-wine text-center">Crear nuevo ToDo</p>
   <form
     action=""
-    class="mt-4 w-full"
+    class="m-4 w-full"
     [formGroup]="todoForm"
     (ngSubmit)="handleSubmit()"
   >

@@ -28,3 +28,7 @@
 .select {
   @apply border border-salmon bg-white w-full my-2 rounded-md py-2 text-slate-600 px-2;
 }
+
+.center-screen {
+  @apply fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
