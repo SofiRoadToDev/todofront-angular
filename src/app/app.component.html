@@ -12,7 +12,7 @@
         [(ngModel)]="categoryFilter"
         (change)="filterCategoryChange()"
       >
-        <option [value]="0">Todas</option>  
+        <option [value]="0">Todas</option>
         @for(cat of categories; track cat.id){
         <option [value]="cat.id">{{ cat.nombre }}</option>
         }
@@ -25,5 +25,5 @@
     }
   </div>
   <router-outlet />
-  <app-login-form/>
- </main>
+  <app-login-form />
+</main>
